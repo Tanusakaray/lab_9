@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>EECS 348 Lab Seven Practice Two</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            padding: 10px;
+            border: 2px solid #000;
+            background-color: #FFFFFF;
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <p id="custom-paragraph">Paragraph to be altered.</p>
+    <label for="border-color-r">Border Color (R):</label>
+    <input type="text" id="border-color-r" placeholder="0-255">
+    <label for="border-color-g"> (G):</label>
+    <input type="text" id="border-color-g" placeholder="0-255">
+    <label for="border-color-b"> (B):</label>
+    <input type="text" id="border-color-b" placeholder="0-255">
+
+    <label for="background-color-r">Background Color (R):</label>
+    <input type="text" id="background-color-r" placeholder="0-255">
+    <label for="background-color-g"> (G):</label>
+    <input type="text" id="background-color-g" placeholder="0-255">
+    <label for="background-color-b"> (B):</label>
+    <input type="text" id="background-color-b" placeholder="0-255">
+
+    <label for="border-width">Border Width:</label>
+    <input type="text" id="border-width" placeholder="e.g., 2">
+    <button id="apply-styles">Change the color!</button>
+
+    <script>
+        const applyStylesButton = document.getElementById("apply-styles");
+        const customParagraph = document.getElementById("custom-paragraph");
+        const borderColorR = document.getElementById("border-color-r");
+        const borderColorG = document.getElementById("border-color-g");
+        const borderColorB = document.getElementById("border-color-b");
+        const backgroundColorR = document.getElementById("background-color-r");
+        const backgroundColorG = document.getElementById("background-color-g");
+        const backgroundColorB = document.getElementById("background-color-b");
+        const borderWidth = document.getElementById("border-width");
+
+        applyStylesButton.addEventListener("click", () => {
+            const borderR = borderColorR.value;
+            const borderG = borderColorG.value;
+            const borderB = borderColorB.value;
+            const backgroundR = backgroundColorR.value;
+            const backgroundG = backgroundColorG.value;
+            const backgroundB = backgroundColorB.value;
+            const border = `${borderWidth.value}px solid rgb(${borderR},${borderG},${borderB})`;
+            const backgroundColor = `rgb(${backgroundR},${backgroundG},${backgroundB})`;
+
+            customParagraph.style.borderColor = `rgb(${borderR},${borderG},${borderB})`;
+            customParagraph.style.borderWidth = border;
+            customParagraph.style.backgroundColor = backgroundColor;
+        });
+    </script>
+</body>
+</html>
